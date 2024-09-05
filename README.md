@@ -3,19 +3,23 @@
 Setting up a database and specific routes that users can gain access to data about movies, theaters, and reviews.
 
 ## Database connection setup for local
+
 1. Create `.env` file
 2. Defined below properties in `.env` file
+
 ```
 NODE_ENV=development
 DEVELOPMENT_DATABASE_URL=postgresql://<username>:<password>@<dbhost>/<dbname>?ssl=true
 ```
 
 ## Setting up the Database
+
 1. Run `npx knex migrate:latest` to create the database
 2. Run `npx knex seed:run` to seed the database
 3. Run `npx knex migrate:rollback` to rollback the database
 
 ## Running the server
+
 1. Run `npm start` to start the server
 2. Run `npm test` to run tests
 3. Access the server at `http://localhost:5001`
@@ -207,8 +211,10 @@ A body like the following will be passed along with the request:
 
 ```json
 {
-  "score": 3,
-  "content": "New content..."
+  "data": {
+    "score": 3,
+    "content": "New content..."
+  }
 }
 ```
 
