@@ -41,12 +41,14 @@ The response from the server will look like the following:
 {
   "data": [
     {
-      "id": 1,
+      "movie_id": 1,
       "title": "Spirited Away",
       "runtime_in_minutes": 125,
       "rating": "PG",
       "description": "Chihiro ...",
-      "image_url": "https://imdb-api.com/..."
+      "image_url": "https://imdb-api.com/...",
+      "created_at": "2024-09-05T07:17:07.009Z",
+      "updated_at": "2024-09-05T07:17:07.009Z"
     }
     // ...
   ]
@@ -55,7 +57,7 @@ The response from the server will look like the following:
 
 ### GET /movies?is_showing=true
 
-In the event where `is_showing=true` is provided, the route will return _only those movies where the movie is currently showing in theaters._ This means you will need to check the `movies_theaters` table.
+In the event where `is_showing=true` is provided, the route will return _only those movies where the movie is currently showing in theaters.
 
 The response from the server will look identical to the response above _except_ that it may exclude some records.
 
@@ -77,12 +79,14 @@ The response from the server will look like the following.
 ```json
 {
   "data": {
-    "id": 1,
+    "movie_id": 1,
     "title": "Spirited Away",
     "runtime_in_minutes": 125,
     "rating": "PG",
     "description": "Chihiro...",
-    "image_url": "https://imdb-api.com/..."
+    "image_url": "https://imdb-api.com/...",
+    "created_at": "2024-09-05T07:17:07.009Z",
+    "updated_at": "2024-09-05T07:17:07.009Z"
   }
 }
 ```
@@ -139,9 +143,6 @@ The response from the server for a request to `/movies/1/reviews` will look like
       "review_id": 1,
       "content": "Lorem markdownum ...",
       "score": 3,
-      "created_at": "2021-02-23T20:48:13.315Z",
-      "updated_at": "2021-02-23T20:48:13.315Z",
-      "critic_id": 1,
       "movie_id": 1,
       "critic": {
         "critic_id": 1,
@@ -188,10 +189,7 @@ The response from the server will look like the following.
           "rating": "PG",
           "description": "Chihiro...",
           "image_url": "https://imdb-api.com...",
-          "created_at": "2021-02-23T20:48:13.342Z",
-          "updated_at": "2021-02-23T20:48:13.342Z",
-          "is_showing": false,
-          "theater_id": 1
+          "is_showing": false
         }
         // ...
       ]

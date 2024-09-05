@@ -8,6 +8,7 @@ const reduceMovies = reduceProperties("theater_id", {
   rating: ["movies", null, "rating"],
   description: ["movies", null, "description"],
   image_url: ["movies", null, "image_url"],
+  is_showing: ["movies", null, "is_showing"]
 });
 
 async function list() {
@@ -29,7 +30,7 @@ async function read(movie_id) {
       "theaters.theater_id"
     )
     .where({ "movies_theaters.movie_id": movie_id })
-    .select("theaters.*");
+    .select("theaters.*", "movies_theaters.is_showing", "movies_theaters.movie_id");
 }
 
 module.exports = {
